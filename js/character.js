@@ -1,12 +1,14 @@
 
 
-function Character(){
+function Character(hero){
+	this.name = hero.name
 	this.stats = {
-		intel: null,
-		str: null,
-		speed: null,
-		durability: null,
-		power: null,
-		combat: null
+		intel: hero.intel,
+		str: hero.str,
+		speed: hero.speed,
+		durability: hero.durability,
+		power: hero.power,
+		combat: hero.combat
 	}
+
 }
