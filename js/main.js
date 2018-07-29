@@ -4,7 +4,7 @@ let game;
 
 const spiderman = {
 	name: "Spider-Man",
-	intel: 100,
+	intel: 110,
 	str: 55,
 	speed: 70,
 	durability: 75,
@@ -22,8 +22,20 @@ const ironman = {
 	combat: 65
 }
 
+const captain = {
+	name: "Captain America",
+	intel: 85,
+	str: 20,
+	speed: 40,
+	durability: 55,
+	power: 60,
+	combat: 100
+}
+
 function intializeApp() {
 	// game = new Game();
 	var Spiderman = new Character(spiderman);
-	Spiderman.attack();
+	var Captain = new Character(captain);
+
+	Captain.attack(Spiderman);
 }
