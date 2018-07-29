@@ -4,8 +4,8 @@ let game;
 
 function intializeApp() {
 	// game = new Game();
-	var Spiderman = new Character(spiderman);
-	var Captain = new Character(captain);
+	var Player1 = new Character(ironman);
+	var Player2 = new Character(spiderman);
 
-	Captain.attack(Spiderman);
+Player1.attack(Player2);
 }

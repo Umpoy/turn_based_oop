@@ -1,6 +1,6 @@
 const spiderman = {
 	name: "Spider-Man",
-	intel: 110,
+	intel: 100,
 	str: 55,
 	speed: 70,
 	durability: 75,
