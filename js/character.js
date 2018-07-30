@@ -13,6 +13,7 @@ function Character(hero) {
 		combat: hero.combat
 	}
 	this.attack = function (target) {
+		console.log(this.name + " is attacking");
 		target.damageCalculation(this);
 	}
 	this.damageCalculation = function (attacker) {
@@ -21,7 +22,7 @@ function Character(hero) {
 		if ((this.stats.combat + this.stats.speed) > (attacker.stats.combat + attacker.stats.speed)) {
 			let dodgeChange = (this.stats.combat + this.stats.speed) - (attacker.stats.combat + attacker.stats.speed)
 			let rng = Math.random() * 100;
-			if (rng < dodgeChange) {
+			if (rng <= dodgeChange) {
 				console.log(this.name, " has dodge the attack");
 			}
 			if (this.stats.hp > 0) {
@@ -30,7 +31,7 @@ function Character(hero) {
 				}, 1000);
 			}
 		} else {
-			console.log("did not dodge");
+			console.log(this.name + " did not dodge");
 			if (this.stats.intel > attacker.stats.intel) {
 				console.log("block some damage happened");
 				blockDamage = (this.stats.intel - attacker.stats.intel) * .01;
