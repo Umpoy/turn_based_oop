@@ -19,24 +19,30 @@ function Character(hero) {
 	this.damageCalculation = function (attacker) {
 		let blockDamage = 1;
 		let damage;
+		dodged = false;
 		if ((this.stats.combat + this.stats.speed) > (attacker.stats.combat + attacker.stats.speed)) {
 			let dodgeChange = (this.stats.combat + this.stats.speed) - (attacker.stats.combat + attacker.stats.speed)
 			let rng = Math.random() * 100;
 			if (rng <= dodgeChange) {
 				console.log(this.name, " has dodge the attack");
+				dodged = true;
 			}
 			if (this.stats.hp > 0) {
 				setTimeout(function () {
 					self.attack(attacker);
 				}, 1000);
+			} else {
+				console.log("The fight has ended");
+				return
 			}
-		} else {
+		
+		} 
+		if(!dodged) {
 			console.log(this.name + " did not dodge");
 			if (this.stats.intel > attacker.stats.intel) {
 				console.log("block some damage happened");
 				blockDamage = (this.stats.intel - attacker.stats.intel) * .01;
 				damage = ((attacker.stats.str + attacker.stats.power) - this.stats.durability);
-
 			} else { // did not block && takes full damage
 				damage = (attacker.stats.str + attacker.stats.power) - this.stats.durability;
 			}
@@ -47,10 +53,12 @@ function Character(hero) {
 				setTimeout(function () {
 					self.attack(attacker);
 				}, 1000);
+			} else {
+				console.log("The fight has ended");
+				return
 			}
 
-		}
-		//let block =  
+		} 
 	}
 
 }
